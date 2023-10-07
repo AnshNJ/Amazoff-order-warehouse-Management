@@ -20,14 +20,14 @@ public class OrderRepository {
     }
 
     public void addOrder(Order order) {
-        if(!orderMap.containsKey(order.getId())) orderMap.put(order.getId() , order);
+        orderMap.put(order.getId() , order);
     }
 
     public void addPartner(String partnerId) {
-        if(!partnerMap.containsKey(partnerId)) partnerMap.put(partnerId , new DeliveryPartner(partnerId));
+        partnerMap.put(partnerId , new DeliveryPartner(partnerId));
     }
 
-    public DeliveryPartner getPartnerId(String partnerId) {
+    public DeliveryPartner getPartnerById(String partnerId) {
         return partnerMap.getOrDefault(partnerId , null);
     }
 

@@ -18,7 +18,7 @@ public class OrderService {
     }
 
     public DeliveryPartner getPartnerById(String partnerId) {
-        return orderRepo.getPartnerId(partnerId);
+        return orderRepo.getPartnerById(partnerId);
     }
 
     public void addPartnerOrderPair(String orderId, String partnerId) {
