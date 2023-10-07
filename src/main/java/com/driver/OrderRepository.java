@@ -12,6 +12,13 @@ public class OrderRepository {
     private HashMap<String , List<String>> partnerOrderMap;
     private HashSet<String> assignedOrder;
 
+    public OrderRepository() {
+        this.orderMap = new HashMap<>();
+        this.partnerMap = new HashMap<>();
+        this.partnerOrderMap = new HashMap<>();
+        this.assignedOrder = new HashSet<>();
+    }
+
     public void addOrder(Order order) {
         if(!orderMap.containsKey(order.getId())) orderMap.put(order.getId() , order);
     }
@@ -43,7 +50,7 @@ public class OrderRepository {
     }
 
     public Order getOrderById(String orderId) {
-        return orderMap.containsKey(orderId) ? orderMap.get(orderId) : null;
+        return orderMap.getOrDefault(orderId, null);
     }
 
     public Integer getOrderCountByPartnerId(String partnerId) {
